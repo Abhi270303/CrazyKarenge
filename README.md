@@ -4,7 +4,7 @@
 # **MemeCampus.org**  
 
 ## **Overview**  
-MemeCampus.org is a decentralized platform empowering users to create, manage, and distribute fungible assets (tokens) for their projects in a user-friendly way. Whether you're a creator, developer, or enthusiast, MemeCampus.org simplifies asset creation with a seamless Web3 integration powered by blockchain technology.
+MemeCampus.org is a decentralized platform empowering users to create, manage, and distribute fungible assets (tokens) for their projects in a user-friendly way. Whether you're a creator, developer, or enthusiast, MemeCampus.org simplifies asset creation with a seamless Web3 integration powered by Base.
 
 ---
 
@@ -24,7 +24,7 @@ MemeCampus.org is a decentralized platform empowering users to create, manage, a
   - State Management: React hooks  
 
 - **Backend**:  
-  - Blockchain: Smart contracts deployed on [Ethereum Testnet/Mainnet](#).  
+  - Blockchain: Smart contracts deployed on [Base Sepolia Testnet](#).  
   - Tools: Ethers.js for blockchain interactions  
 
 - **Smart Contracts**:  
@@ -37,7 +37,7 @@ MemeCampus.org is a decentralized platform empowering users to create, manage, a
 
 ### **1. Clone the Repository**  
 ```bash  
-git clone https://github.com/your-repo/MemeCampus.git  
+git clone https://github.com/Abhi270303/CrazyKarenge.git  
 cd MemeCampus  
 ```  
 
@@ -63,7 +63,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the app in action.
 ---
 
 ## **Smart Contract Details**  
-The platform integrates with the `Launchpad` smart contract to enable fungible asset creation.  
+The platform integrates with the `Launchpad` smart contract on Base Sepolia to enable fungible asset creation.  
 
 ### **Deployed Smart Contract Address**  
 - **Launchpad Contract Address**: `0xf2959BAA209158028FF82aa80209C718eF001d13` 
