@@ -18,7 +18,7 @@ const CustomLayout = ({ children, linkset = "default" }) => {
     <div className="relative h-full w-full flex items-center justify-center">
       <Card className="w-[350px] bg-white/90 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle>Hey!, Welcome to Memer.bro </CardTitle>
+          <CardTitle>Hey!, Welcome to MemeCampus </CardTitle>
           <CardDescription>Connect your wallet to get started</CardDescription>
         </CardHeader>
         <CardContent>
