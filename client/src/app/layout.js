@@ -16,7 +16,7 @@ const poppins = Poppins({
 function RootLayout({ children }) {
   // Update metadata on client-side
   useEffect(() => {
-    document.title = "What are MemeCoins";
+    document.title = "Memer.bro";
     document.querySelector('meta[name="description"]')?.setAttribute(
       "content",
       "Find memes and creating your own meme coins in seconds"

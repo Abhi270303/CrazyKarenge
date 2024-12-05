@@ -1,7 +1,8 @@
 export const chainsName = { 
   inco: "Inco",
   avalaSepolia: "AVALA",
-  eduChain :"EDU"
+  eduChain :"EDU",
+  baseSepolia : "BASE"
 };
 
 export const incoNetwork = {
@@ -79,8 +80,36 @@ export const avalaNetwork = {
   testnet: true,
 };
 
+export const baseSepolia = {
+  id: 11155111,
+  network: "base-sepolia",
+  name: "Base Sepolia",
+  nativeCurrency: {
+    name: "Ethereum",
+    symbol: "ETH",
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: {
+      http: [process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL],
+    },
+    public: {
+      http: [process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: "BaseScan",
+      url: "https://sepolia.basescan.org",
+    },
+  },
+  testnet: true,
+};
+
+
 export const networks = {
   inco: incoNetwork,
   avalaSepolia: avalaNetwork,
-  EduChain : eduChain
+  EduChain : eduChain,
+  baseSepolia : baseSepolia
 };
