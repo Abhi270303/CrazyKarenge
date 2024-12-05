@@ -24,11 +24,54 @@ const AssetForm = ({ imageUri }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted with image:', selectedImage);
+  
+    try {
+      // Gather form data
+      const formData = new FormData(e.target);
+      const assetData = {
+        name: formData.get("assetName"),
+        symbol: formData.get("assetSymbol"),
+        maxSupply: formData.get("maxSupply"),
+        maxMintAmount: formData.get("maxMintAmount"),
+        decimal: formData.get("decimal"),
+        projectUrl: formData.get("projectUrl"),
+        mintFee: formData.get("mintFee") || "0", // Default to 0 if not provided
+        iconUri: selectedImage || "", // Use the image URI
+      };
+  
+      // Interact with the blockchain
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(launchpadAddress, LaunchpadABI, signer);
+  
+      // Call the `createFA` function in the contract
+      const tx = await contract.createFA(
+        ethers.utils.parseUnits(assetData.maxSupply, assetData.decimal), // Convert max supply to token decimals
+        assetData.name,
+        assetData.symbol,
+        parseInt(assetData.decimal), // Ensure it's an integer
+        assetData.iconUri,
+        assetData.projectUrl,
+        ethers.utils.parseEther(assetData.mintFee), // Convert mint fee to Wei
+        ethers.utils.parseUnits("0", assetData.decimal), // Default pre-mint amount
+        ethers.utils.parseUnits(assetData.maxMintAmount, assetData.decimal) // Convert mint limit
+      );
+  
+      console.log("Transaction submitted:", tx.hash);
+  
+      // Wait for the transaction to be mined
+      const receipt = await tx.wait();
+      console.log("Transaction confirmed:", receipt);
+  
+      alert("Asset created successfully!");
+    } catch (error) {
+      console.error("Error creating asset:", error);
+      alert("Failed to create asset. Check console for details.");
+    }
   };
+  
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
